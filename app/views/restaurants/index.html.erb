@@ -1,0 +1,15 @@
+<h1>Here is our list of favorite restaurants:</h1>
+
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <li>
+      <%= link_to restaurant_path(restaurant) do %>
+        <%= restaurant.name %>
+      <% end %>
+      -
+      <%= link_to "Delete", restaurant_path(restaurant), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "+ Add Restaurant", new_restaurant_path %>
